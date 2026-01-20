@@ -227,47 +227,26 @@ Certifique-se de ter instalado:
 #### 1. Executando o Serviço de Machine Learning (Python)
 Responsável por classificar o sentimento dos feedbacks.
 
-Acesse a pasta:
+Abra um terminal na raiz do projeto e rode o comando abaixo para acessar a pasta, instalar as dependências e rodar a aplicação:
 ```bash
-cd data
-```
-Crie e ative um ambiente virtual (opcional, mas recomendado):
-```bash
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
-```
-Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
-Execute a API FastAPI:
-```bash
-uvicorn app:app --reload
+cd data && pip install -r requirements.txt && uvicorn app:app --reload
 ```
 
-**Acessos:**
-
-O serviço estará disponível em: http://localhost:8000
-
-Documentação automática (Swagger): http://localhost:8000/docs
+| Serviço | Documentação |
+| :--- | :--- |
+| http://localhost:8000 | http://localhost:8000/docs |
 
 #### ☕ 2. Executando o Backend (Java + Spring Boot)
-
 Responsável por expor a API REST e integrar com o serviço Python.
-```bash
-cd backend
-```
-Execute a aplicação:
-```bash
-mvn spring-boot:run
 
+Abra outro terminal na raiz do projeto e rode o comando abaixo para acessar a pasta e rodar a aplicação:
+```bash
+cd backend && mvn spring-boot:run
 ```
-📍 A API estará disponível em:
-👉 http://localhost:8080
-
-📄 Documentação Swagger/OpenAPI:
-👉 http://localhost:8080/swagger-ui.html
+| Serviço | Documentação |
+| :--- | :--- |
+| http://localhost:8080 | http://localhost:8080/swagger-ui.html |
+ 
 
 #### 🔁 Fluxo de Funcionamento
 
@@ -385,7 +364,10 @@ N --> M
 ```
 ---
 
-### 👥 **Equipe do Projeto**
+### 👥 **Equipe DevstechOne**
+Este projeto foi desenvolvido com orgulho durante o Hackathon ONE.
 
-<a href="https://github.com/alessandroapolinario" title="Alessandro Apolin"><img width="160" src="https://i.ibb.co/JWjKwMx9/Alessandro-Apolin-rio.png"/></a> <a href="https://github.com/amaro-netto" title="Amaro Netto"><img width="160" src="https://i.ibb.co/Gf4bW8GB/backend-java.png"/></a> <a href="https://github.com/brunorm86" title="Bruno Machado"><img width="160" src="https://i.ibb.co/cc3gb9dT/bruno.png"/></a> <a href="https://github.com/MicheleLescano" title="Michele Lescano"><img width="160" src="https://i.ibb.co/gbV6q2f2/michele.png"/></a> <a href="https://github.com/Rshinna" title="Rodrigo Franco"><img width="160" src="https://i.ibb.co/jZ9TJ416/rodrigo.png"/></a> 
+<a href="https://github.com/alessandroapolinario" title="Alessandro Apolin"><img width="160" src="https://i.ibb.co/JWjKwMx9/Alessandro-Apolin-rio.png"/></a> <a href="https://github.com/amaro-netto" title="Amaro Netto"><img width="160" src="https://i.ibb.co/Gf4bW8GB/backend-java.png"/></a> <a href="https://github.com/brunorm86" title="Bruno Machado"><img width="160" src="https://i.ibb.co/cc3gb9dT/bruno.png"/></a> <a href="https://github.com/MicheleLescano" title="Michele Lescano"><img width="160" src="https://i.ibb.co/gbV6q2f2/michele.png"/></a> <a href="https://github.com/Rshinna" title="Rodrigo Franco"><img width="160" src="https://i.ibb.co/jZ9TJ416/rodrigo.png"/></a>
 
+
+© 2026 InsightSent - Desenvolvido por DevstechOne.
