@@ -69,6 +69,11 @@ O projeto adota uma arquitetura de **Microserviços Conteinerizados**, garantind
 ### **4. Infraestrutura de Dados**
 * **Banco de Dados:** PostgreSQL 15 rodando em container Docker.
 * **Persistência:** Armazena usuários, logs de auditoria e histórico completo das análises para geração de insights futuros.
+  
+**Todas as Tecnologias Utilizadas**
+| Backend (Java/Spring) | Data Science (Python) | Infra/DevOps |
+| :--- | :--- | :--- |
+| • Java 17 + Spring Boot 3<br>• Spring Web (REST) - Endpoints<br>• Spring Security (JWT)<br>• Spring Validation<br>• Lombok<br>• OpenFeign (HTTP client → Python)<br>• H2 Database (em memória)<br>• JUnit + Mockito (testes)<br>• Swagger/OpenAPI (Docs) | • Python 3.10<br>• Pandas, NumPy, Scikit-learn<br>• Joblib (persistência)<br>• FastAPI + Uvicorn<br>• Datasets (Hugging Face/Kaggle)<br>• Imbalanced-learn<br>• NLTK / SpaCy (NLP)<br>• Matplotlib / Seaborn | • Git / GitHub (Monorepo)<br>• Docker + Docker Compose<br>• GitHub Actions (CI/CD)<br>• PlantUML (fluxogramas) |
 
 ---
 
@@ -98,74 +103,8 @@ sequenceDiagram
 > O código do front-end encontra-se em funcionamento e integrado ao backend. Documentação e melhorias visuais poderão ser adicionadas nas próximas iterações do projeto.
 
 
-### ⚙️ **Tecnologias Utilizadas**
-Seguindo a arquitetura de microserviços, adotaremos a seguinte stack:
-  
-**Backend:** 
-* Java 17 + Spring Boot 3 - API /sentiment
-* Spring Web (REST) - Endpoints
-* Spring Security (JWT)
-* Spring Validation
-* Lombok
-* OpenFeign (HTTP client → Python)
-* H2 Database (em memória)
-* JUnit + Mockito (testes)
-* Swagger/OpenAPI (Documentação)
+### 📁 **Estrutura do Projeto & Visão Geral do Repositório**
 
-**Data Science:**
-  * Python 3.10 
-  * Pandas, NumPy, Scikit-learn  
-  * Joblib (persistência de modelo)  
-  * FastAPI + Uvicorn (servidor de predição) 
-  * Datasets (Hugging Face) 
-  * Huggingface Hub  
-  * KaggleHub 
-  * Imbalanced-learn (tratamento de dados desbalanceados) 
-  * NLTK / SpaCy (pré-processamento de texto, se aplicável) 
-  * Matplotlib / Seaborn (visualização de dados) 
-  
-
-**Infra/Dev:**
-* Git / GitHub (Monorepo)
-* Docker + Docker Compose
-* GitHub Actions (CI/CD)
-* PlantUML(fluxogramas)
-
-**Build/Deploy:**
-* Oracle Cloud (futuro) 
-
-### 📁 **Estrutura do Projeto**
-* `/backend` - Código fonte da API Java
-* `/data` - Notebooks e scripts de treinamento do modelo
-* `/docs` - Documentação e fluxogramas
-  * `fluxoCadastro.png` — Fluxo de cadastro de usuário 
-  * `fluxoLogin.png` — Fluxo de autenticação  
-  * `fluxoAnalise.png` — Fluxo de análise de sentimento 
-  * `INFO.TXT` — Informações complementares 
-* `/frontend` — Interface web da aplicação
-  * `index.html` — Página inicial
-  * `README.md` — Documentação do front-end
-  * `server.py` — Script de servidor local (opcional)
-  * `/src`
-    * `/assets`
-      * `/css`
-        - app.css
-        - dashboard.css
-        - login.css
-        - style.css
-      * `/js`
-        - auth-guard.js
-        - dashboard.js
-        - layout.js
-        - login.js
-        - register.js
-        - script.js
-    * `/pages`
-      - dashboard.html
-      - register.html
-      - sentiment.html
-
-#### Visão Geral do Repositório
 ```
 hackathon-sentimentapi-analytics
 │
@@ -260,7 +199,6 @@ cd backend && mvn spring-boot:run
 
 #### 🛑 Encerrando a Aplicação
 
-Para encerrar os serviços, utilize:
 ```bash
 CTRL + C
 ```
