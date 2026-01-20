@@ -107,8 +107,9 @@ sequenceDiagram
     Front-->>User: Exibe Gráfico de Confiança e Cor
 ```
 
-📌 Observação:
-O código do front-end encontra-se em funcionamento e integrado ao backend. Documentação e melhorias visuais poderão ser adicionadas nas próximas iterações do projeto.
+> [!NOTE]
+> O código do front-end encontra-se em funcionamento e integrado ao backend. Documentação e melhorias visuais poderão ser adicionadas nas próximas iterações do projeto.
+
 
 ### ⚙️ **Tecnologias Utilizadas**
 Seguindo a arquitetura de microserviços, adotaremos a seguinte stack:
@@ -210,15 +211,21 @@ hackathon-sentimentapi-analytics
 └── README.md               # Documentação principal do projeto
 ```
 ---
-### 🚀 Execução do Projeto
-⚠️ **Importante:** o serviço Python **deve estar em execução antes** de iniciar o backend Java.
+## Execução do Projeto
+
+### Como Executar **(VSCODE)**
+
+> [!IMPORTANT]
+> o serviço Python **deve estar em execução antes** de iniciar o backend Java.
+
 
 Este projeto é composto por dois serviços principais que devem ser executados separadamente:
 
 - Serviço de Machine Learning (Python + FastAPI)
 - API Backend (Java + Spring Boot)
 
-⚠️ O backend Java depende do serviço Python estar em execução.
+> [!IMPORTANT]
+> O backend Java depende do serviço Python estar em execução.
 
 #### 🔹 Pré-requisitos
 
@@ -297,6 +304,32 @@ Para encerrar os serviços, utilize:
 CTRL + C
 ```
 em ambos os terminais (Python e Java).
+
+## Como Executar **(Docker)**
+
+O projeto foi desenhado para ser executado com um único comando, abstraindo a complexidade de configuração de ambientes.
+
+### **Pré-requisitos**
+* Docker e Docker Compose instalados.
+
+### **Passo a Passo**
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/amaro-netto/hackathon-sentimentapi-analytics.git](https://github.com/amaro-netto/hackathon-sentimentapi-analytics.git)
+    cd hackathon-sentimentapi-analytics
+    ```
+
+2.  **Suba a aplicação (Build & Run):**
+    ```bash
+    docker-compose up --build -d
+    ```
+    *Isso irá compilar o Java, construir a imagem Python, subir o banco PostgreSQL e configurar a rede interna.*
+
+3.  **Acesse o Sistema:**
+    * **Frontend (Aplicação):** `http://localhost:80` (Login e Dashboard)
+    * **API Java (Swagger):** `http://localhost:8080/swagger-ui.html`
+    * **API Python (Docs):** `http://localhost:8000/docs`
 
 ---
 ### 📊 Fluxogramas do Sistema
