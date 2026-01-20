@@ -70,9 +70,52 @@ O projeto adota uma arquitetura de **Microserviços Conteinerizados**, garantind
 <p>&nbsp;</p>
   
 Todas as Tecnologias Utilizadas:
-| Backend (Java/Spring) | Data Science (Python) | Infra/DevOps |
-| :--- | :--- | :--- |
-| • Java 17 + Spring Boot 3<br>• Spring Web (REST) - Endpoints<br>• Spring Security (JWT)<br>• Spring Validation<br>• Lombok<br>• OpenFeign (HTTP client → Python)<br>• H2 Database (em memória)<br>• JUnit + Mockito (testes)<br>• Swagger/OpenAPI (Docs) | • Python 3.10<br>• Pandas, NumPy, Scikit-learn<br>• Joblib (persistência)<br>• FastAPI + Uvicorn<br>• Datasets (Hugging Face/Kaggle)<br>• Imbalanced-learn<br>• NLTK / SpaCy (NLP)<br>• Matplotlib / Seaborn | • Git / GitHub (Monorepo)<br>• Docker + Docker Compose<br>• GitHub Actions (CI/CD)<br>• PlantUML (fluxogramas) |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="33%">Backend (Java/Spring)</th>
+      <th width="33%">Data Science (Python)</th>
+      <th width="33%">Infra/DevOps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">
+        <ul>
+          <li>Java 17 + Spring Boot 3</li>
+          <li>Spring Web (REST) - Endpoints</li>
+          <li>Spring Security (JWT)</li>
+          <li>Spring Validation</li>
+          <li>Lombok</li>
+          <li>OpenFeign (HTTP client → Python)</li>
+          <li>H2 Database (em memória)</li>
+          <li>JUnit + Mockito (testes)</li>
+          <li>Swagger/OpenAPI (Docs)</li>
+        </ul>
+      </td>
+      <td valign="top">
+        <ul>
+          <li>Python 3.10</li>
+          <li>Pandas, NumPy, Scikit-learn</li>
+          <li>Joblib (persistência)</li>
+          <li>FastAPI + Uvicorn</li>
+          <li>Datasets (Hugging Face/Kaggle)</li>
+          <li>Imbalanced-learn</li>
+          <li>NLTK / SpaCy (NLP)</li>
+          <li>Matplotlib / Seaborn</li>
+        </ul>
+      </td>
+      <td valign="top">
+        <ul>
+          <li>Git / GitHub (Monorepo)</li>
+          <li>Docker + Docker Compose</li>
+          <li>GitHub Actions (CI/CD)</li>
+          <li>PlantUML (fluxogramas)</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 > [!NOTE]
 > O código do front-end encontra-se em funcionamento e integrado ao backend. Documentação e melhorias visuais poderão ser adicionadas nas próximas iterações do projeto.
@@ -144,9 +187,20 @@ Este projeto é composto por dois serviços principais que devem ser executados 
 cd data && pip install -r requirements.txt && uvicorn app:app --reload
 ```
 
-| Serviço | Documentação |
-| :--- | :--- |
-| `http://localhost:8000` | `http://localhost:8000/docs` |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="50%">Serviço</th>
+      <th width="50%">Documentação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>http://localhost:8000</code></td>
+      <td><code>http://localhost:8000/docs</code></td>
+    </tr>
+  </tbody>
+</table>
 
 #### 2. Executando o Backend (Java + Spring Boot)
 *Responsável por expor a API REST e integrar com o serviço Python.*
@@ -155,9 +209,20 @@ cd data && pip install -r requirements.txt && uvicorn app:app --reload
 ```bash
 cd backend && mvn spring-boot:run
 ```
-| Serviço | Documentação |
-| :--- | :--- |
-| `http://localhost:8080` | `http://localhost:8080/swagger-ui.html` |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="50%">Serviço</th>
+      <th width="50%">Documentação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>http://localhost:8080</code></td>
+      <td><code>http://localhost:8080/swagger-ui.html</code></td>
+    </tr>
+  </tbody>
+</table>
 
 #### 3. Encerrando a Aplicação.
 > Fazer em ambos os terminais (Python e Java).
@@ -196,9 +261,22 @@ git clone https://github.com/amaro-netto/hackathon-sentimentapi-analytics.git &&
 ```
 *Isso irá compilar o Java, construir a imagem Python, subir o banco PostgreSQL e configurar a rede interna.*
 
-| Frontend | API Java (Swagger) | API Python (Docs) |
-| :--- | :--- | :--- |
-| `http://localhost:80` | `http://localhost:8080/swagger-ui.html` | `http://localhost:8000/docs` |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="33%">Frontend</th>
+      <th width="33%">API Java (Swagger)</th>
+      <th width="33%">API Python (Docs)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>http://localhost:80</code></td>
+      <td><code>http://localhost:8080/swagger-ui.html</code></td>
+      <td><code>http://localhost:8000/docs</code></td>
+    </tr>
+  </tbody>
+</table>
 <p>&nbsp;</p>
 
 ## 📊 Fluxogramas do Sistema
