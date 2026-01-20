@@ -216,7 +216,9 @@ hackathon-sentimentapi-analytics
 ### Como Executar **(VSCODE)**
 
 > [!IMPORTANT]
-> o serviço Python **deve estar em execução antes** de iniciar o backend Java.
+> O serviço Python **deve estar em execução antes** de iniciar o backend Java.
+> 
+> O backend Java depende do serviço Python estar em execução.
 
 
 Este projeto é composto por dois serviços principais que devem ser executados separadamente:
@@ -224,8 +226,6 @@ Este projeto é composto por dois serviços principais que devem ser executados 
 - Serviço de Machine Learning (Python + FastAPI)
 - API Backend (Java + Spring Boot)
 
-> [!IMPORTANT]
-> O backend Java depende do serviço Python estar em execução.
 
 #### 🔹 Pré-requisitos
 
@@ -305,7 +305,7 @@ CTRL + C
 ```
 em ambos os terminais (Python e Java).
 
-## Como Executar **(Docker)**
+### Como Executar **(Docker)**
 
 O projeto foi desenhado para ser executado com um único comando, abstraindo a complexidade de configuração de ambientes.
 
