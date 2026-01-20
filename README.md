@@ -120,7 +120,81 @@ Todas as Tecnologias Utilizadas:
 > [!NOTE]
 > O código do front-end encontra-se em funcionamento e integrado ao backend. Documentação e melhorias visuais poderão ser adicionadas nas próximas iterações do projeto.
 <p>&nbsp;</p>
+
 ## 🧠 **Metodologia de Data Science**
+O "cérebro" da aplicação utiliza um pipeline robusto para garantir precisão em múltiplos idiomas.
+
+1.  **Datasets Unificados:** Treinamento realizado com ~470.000 avaliações combinadas de **Olist** (PT-BR), **B2W** (PT-BR) e **Amazon Reviews** (ES).
+2.  **Balanceamento:** Aplicação de **SMOTE** (Synthetic Minority Over-sampling Technique) para evitar viés em classes minoritárias.
+3.  **Vetorização:** Uso de **TF-IDF** para ponderar a relevância das palavras, ignorando ruídos (stopwords).
+4.  **Modelo:** **Regressão Logística**, escolhida pelo equilíbrio ideal entre precisão e velocidade de inferência (<100ms).
+<p>&nbsp;</p>
+
+## 🔌 Documentação da API (Endpoints)
+A API segue os padrões RESTful e está documentada via Swagger/OpenAPI. Abaixo estão as rotas principais para integração.
+
+#### Autenticação & Usuários
+| Método | Endpoint | Descrição | Nível de Acesso |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/auth/register` | Cadastra um novo usuário no sistema. | Público |
+| `POST` | `/auth/login` | Autentica credenciais e retorna o Bearer Token. | Público |
+
+#### Core Business (Análise)
+| Método | Endpoint | Descrição | Nível de Acesso |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/analise` | Envia um texto para processamento. Retorna o Sentimento, Nível de Confiança (%) e Idioma detectado. | Autenticado |
+| `GET` | `/analise/historico` | Retorna todo o histórico de análises realizadas pelo usuário logado. | Autenticado |
+<p>&nbsp;</p>
+
+## 🔌 **Exemplos de Requisição e Resposta (JSON)**
+Para facilitar a integração, abaixo estão os exemplos reais de uso da API documentados no Swagger.
+### **1. Realizar Análise (`POST /analise`)**
+
+Envia um texto cru e recebe a classificação enriquecida com metadados.
+**Requisição:**
+
+```json
+{
+  "texto": "O prazo de entrega foi cumprido com excelência, adorei!"
+}
+```
+**Resposta (200 OK):**
+```json
+{
+  "sentimento": "Positivo",
+  "probabilidade": 0.9854,
+  "idioma": "PT",
+  "data_analise": "2026-01-18T14:30:00Z"
+}
+```
+> [!NOTE]
+> O campo idioma é gerado dinamicamente pela biblioteca langdetect no serviço Python.
+<p>&nbsp;</p>
+
+### **2. Histórico (`GET /analise/historico`)**
+Recupera os dados persistidos no PostgreSQL para popular o Dashboard.
+**Resposta (200 OK):**
+```json
+[
+  {
+    "id": 153,
+    "texto": "Não gostei do atendimento.",
+    "sentimento": "Negativo",
+    "probabilidade": 0.85,
+    "idioma": "PT",
+    "criado_em": "2026-01-18T10:00:00Z"
+  },
+  {
+    "id": 154,
+    "texto": "Me encanta este producto.",
+    "sentimento": "Positivo",
+    "probabilidade": 0.99,
+    "idioma": "ES",
+    "criado_em": "2026-01-18T10:05:00Z"
+  }
+]
+```
+<p>&nbsp;</p>
 
 ## 📁 **Estrutura do Projeto & Visão Geral do Repositório**
 
@@ -246,71 +320,6 @@ git clone https://github.com/amaro-netto/hackathon-sentimentapi-analytics.git &&
 | :--- | :--- | :--- |
 | `http://localhost:80` | `http://localhost:8080/swagger-ui.html` | `http://localhost:8000/docs` |
 <p>&nbsp;</p>
-
-## 🔌 Documentação da API (Endpoints)
-A API segue os padrões RESTful e está documentada via Swagger/OpenAPI. Abaixo estão as rotas principais para integração.
-
-#### Autenticação & Usuários
-| Método | Endpoint | Descrição | Nível de Acesso |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/auth/register` | Cadastra um novo usuário no sistema. | Público |
-| `POST` | `/auth/login` | Autentica credenciais e retorna o Bearer Token. | Público |
-
-#### Core Business (Análise)
-| Método | Endpoint | Descrição | Nível de Acesso |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/analise` | Envia um texto para processamento. Retorna o Sentimento, Nível de Confiança (%) e Idioma detectado. | Autenticado |
-| `GET` | `/analise/historico` | Retorna todo o histórico de análises realizadas pelo usuário logado. | Autenticado |
-<p>&nbsp;</p>
-
-## 🔌 **Exemplos de Requisição e Resposta (JSON)**
-Para facilitar a integração, abaixo estão os exemplos reais de uso da API documentados no Swagger.
-### **1. Realizar Análise (`POST /analise`)**
-
-Envia um texto cru e recebe a classificação enriquecida com metadados.
-**Requisição:**
-
-```json
-{
-  "texto": "O prazo de entrega foi cumprido com excelência, adorei!"
-}
-```
-**Resposta (200 OK):**
-```json
-{
-  "sentimento": "Positivo",
-  "probabilidade": 0.9854,
-  "idioma": "PT",
-  "data_analise": "2026-01-18T14:30:00Z"
-}
-```
-> [!NOTE]
-> O campo idioma é gerado dinamicamente pela biblioteca langdetect no serviço Python.
-<p>&nbsp;</p>
-
-### **2. Histórico (`GET /analise/historico`)**
-Recupera os dados persistidos no PostgreSQL para popular o Dashboard.
-**Resposta (200 OK):**
-```json
-[
-  {
-    "id": 153,
-    "texto": "Não gostei do atendimento.",
-    "sentimento": "Negativo",
-    "probabilidade": 0.85,
-    "idioma": "PT",
-    "criado_em": "2026-01-18T10:00:00Z"
-  },
-  {
-    "id": 154,
-    "texto": "Me encanta este producto.",
-    "sentimento": "Positivo",
-    "probabilidade": 0.99,
-    "idioma": "ES",
-    "criado_em": "2026-01-18T10:05:00Z"
-  }
-]
-```
 
 ## 📊 Fluxogramas do Sistema
 Abaixo estão os fluxos principais da aplicação:
