@@ -72,32 +72,8 @@ O projeto adota uma arquitetura de **Microserviços Conteinerizados**, garantind
 | :--- | :--- | :--- |
 | • Java 17 + Spring Boot 3<br>• Spring Web (REST) - Endpoints<br>• Spring Security (JWT)<br>• Spring Validation<br>• Lombok<br>• OpenFeign (HTTP client → Python)<br>• H2 Database (em memória)<br>• JUnit + Mockito (testes)<br>• Swagger/OpenAPI (Docs) | • Python 3.10<br>• Pandas, NumPy, Scikit-learn<br>• Joblib (persistência)<br>• FastAPI + Uvicorn<br>• Datasets (Hugging Face/Kaggle)<br>• Imbalanced-learn<br>• NLTK / SpaCy (NLP)<br>• Matplotlib / Seaborn | • Git / GitHub (Monorepo)<br>• Docker + Docker Compose<br>• GitHub Actions (CI/CD)<br>• PlantUML (fluxogramas) |
 
-
-## 📊 **Fluxo de Dados (Pipeline)**
-
-```mermaid
-sequenceDiagram
-    participant User as 👤 Usuário
-    participant Front as 💻 Frontend
-    participant Java as ☕ Backend API (Java)
-    participant AI as 🧠 IA Service (Python)
-    participant DB as 🗄️ PostgreSQL
-
-    User->>Front: Digita o texto e clica em "Analisar"
-    Front->>Java: POST /analise (c/ Token JWT)
-    Java->>Java: Valida Token & Permissões
-    Java->>AI: Envia texto cru (OpenFeign)
-    AI->>AI: Detecta Idioma (PT/ES)
-    AI->>AI: Vetorização (TF-IDF) + Predição
-    AI-->>Java: Retorna JSON {sentimento, score, idioma}
-    Java->>DB: Salva log da análise (Persistência)
-    Java-->>Front: Retorna Resultado Completo
-    Front-->>User: Exibe Gráfico de Confiança e Cor
-```
-
 > [!NOTE]
 > O código do front-end encontra-se em funcionamento e integrado ao backend. Documentação e melhorias visuais poderão ser adicionadas nas próximas iterações do projeto.
-
 
 ### 📁 **Estrutura do Projeto & Visão Geral do Repositório**
 
@@ -226,71 +202,62 @@ git clone https://github.com/amaro-netto/hackathon-sentimentapi-analytics.git &&
 
 Abaixo estão os fluxos principais da aplicação:
 
-#### 🔐 Fluxo de Cadastro
-Representa o processo de criação de um novo usuário no sistema. 
+#### 📊 **Fluxo de Dados (Pipeline)**
 
 ```mermaid
-flowchart TD
-A(["Início"]) --> B["Cliente envia requisição<br/>(Cadastro)"]
-B --> C["Receber dados do usuário<br/>(nome, email, senha)"]
-C --> D["Validar formato dos dados"]
-D --> E{"Dados válidos?"}
+sequenceDiagram
+    participant User as 👤 Usuário
+    participant Front as 💻 Frontend
+    participant Java as ☕ Backend API (Java)
+    participant AI as 🧠 IA Service (Python)
+    participant DB as 🗄️ PostgreSQL
 
-E -- Sim --> F["Persistir usuário<br/>no banco de dados"]
-F --> G["Gerar token JWT"]
-G --> H["Retornar resposta JSON<br/>com token"]
-H --> I["Usuário cadastrado<br/>com sucesso"]
-I --> J(["Fim"])
-
-E -- Não --> K["Retornar erro JSON<br/>(dados inválidos)"]
-K --> J
+    User->>Front: Digita o texto e clica em "Analisar"
+    Front->>Java: POST /analise (c/ Token JWT)
+    Java->>Java: Valida Token & Permissões
+    Java->>AI: Envia texto cru (OpenFeign)
+    AI->>AI: Detecta Idioma (PT/ES)
+    AI->>AI: Vetorização (TF-IDF) + Predição
+    AI-->>Java: Retorna JSON {sentimento, score, idioma}
+    Java->>DB: Salva log da análise (Persistência)
+    Java-->>Front: Retorna Resultado Completo
+    Front-->>User: Exibe Gráfico de Confiança e Cor
 ```
-
-#### 🔑 Fluxo de Login
-Representa o processo de autenticação de um usuário no sistema. 
-
-```mermaid
-flowchart TD
-A(["Início"]) --> B["Cliente envia requisição<br/>(Login)"]
-B --> C["Receber credenciais<br/>(email, senha)"]
-C --> D["Validar credenciais<br/>no banco"]
-D --> E{"Credenciais corretas?"}
-
-E -- Sim --> F["Gerar token JWT"]
-F --> G["Retornar resposta JSON<br/>com token"]
-G --> H["Usuário logado<br/>com sucesso"]
-H --> I(["Fim"])
-
-E -- Não --> J["Retornar erro JSON<br/>(login inválido)"]
-J --> I
-```
-
-#### 💬 Fluxo de Análise de Sentimento
-Representa o processo de classificação automática de feedbacks em positivo, negativo ou neutro.
-
-```mermaid
-flowchart TD
-A(["Início"]) --> B["Cliente envia requisição<br/>(Análise de Sentimento)"]
-B --> C["Receber texto de entrada<br/>+ token JWT"]
-C --> D["Validar token JWT"]
-D --> E{"Token válido?"}
-
-E -- Sim --> F["Detectar idioma<br/>(Português ou Espanhol)"]
-E -- Não --> G["Retornar erro JSON<br/>(token inválido)"]
-G --> Z(["Fim"])
-
-F --> H{"Idioma suportado?"}
-
-H -- Sim --> I["Pré-processar texto<br/>(TF-IDF)"]
-I --> J["Classificar sentimento<br/>(Regressão Logística)"]
-J --> K["Gerar previsão<br/>+ probabilidade"]
-K --> L["Retornar resposta JSON<br/>com resultado"]
-L --> M["Resultado da Análise<br/>(Sentimento)"]
-M --> Z
-
-H -- Não --> N["Retornar um JSON<br/>(Aleatório)"]
-N --> M
-```
+<table>
+  <tr>
+    <td align="center" width="33.33%">
+      <p>🔐 Fluxo de Cadastro</p>
+    </td>
+    <td align="center" width="33.33%">
+      <p>🔑 Fluxo de Login</p>
+    </td>
+    <td align="center" width="33.33%">
+      <p>💬 Fluxo de Análise de Sentimento</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      Representa o processo de criação de um novo usuário no sistema.
+    </td>
+    <td align="center">
+      Representa o processo de autenticação de um usuário no sistema.
+    </td>
+    <td align="center">
+      Representa o processo de classificação automática de feedbacks em positivo, negativo ou neutro.
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/amaro-netto/hackathon-sentimentapi-analytics/raw/main/docs/fluxogramas/fluxoCadastro.png" width="300px" alt="Imagem 1">
+    </td>
+    <td align="center">
+      <img src="https://github.com/amaro-netto/hackathon-sentimentapi-analytics/raw/main/docs/fluxogramas/fluxoLogin.png" width="300px" alt="Imagem 2">
+    </td>
+    <td align="center">
+      <img src="https://github.com/amaro-netto/hackathon-sentimentapi-analytics/raw/main/docs/fluxogramas/fluxoAnalise.png" width="300px" alt="Imagem 3">
+    </td>
+  </tr>
+</table>
 
 ### 👥 **Equipe DevstechOne**
 Este projeto foi desenvolvido com orgulho durante o Hackathon ONE.
