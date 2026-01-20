@@ -1,4 +1,4 @@
-# Projeto: SentimentAPI — Análise de Sentimentos de Feedbacks
+# InsightSent — Inteligência de Dados e Análise de Sentimentos
 
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -25,6 +25,15 @@
 ![Oracle Cloud](https://img.shields.io/badge/Oracle_Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white)
 
 
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Security-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
+
 ---
 
 ### **Índice**
@@ -39,23 +48,64 @@
 ---
 
 ### 📝 **Descrição do Projeto**
-API para classificação automática de sentimentos (Positivo/Negativo/Neutro) em feedbacks de clientes, utilizando um modelo de Machine Learning integrado a um backend Java Spring Boot.
 
-### 🖥️ Front-end
+O **InsightSent** é uma plataforma de inteligência de dados desenvolvida para transformar o caos de feedbacks não estruturados em decisões estratégicas. 
 
-O projeto já conta com um front-end funcional, responsável por permitir a interação do usuário com a API de análise de sentimentos.
+Em um cenário onde **80% dos feedbacks de clientes são ignorados** por incapacidade de processamento manual, o InsightSent atua como uma central de inteligência que processa textos em tempo real, identifica o idioma (Português/Espanhol) e classifica o sentimento com alta precisão.
 
-Principais funcionalidades do front-end:
+### **Diferenciais**
+* 🚀 **Performance:** Respostas em menos de 100ms.
+* 🌍 **Multilíngue:** Detecção automática de **PT-BR** e **ES** (Espanhol).
+* 📊 **Inteligência Visual:** Dashboard integrado para acompanhamento de métricas.
+* 🔒 **Segurança:** Arquitetura protegida com autenticação via Token JWT.
 
-* Envio de feedbacks de clientes para análise
+---
 
-* Exibição do sentimento classificado (Positivo, Negativo ou Neutro)
+## ⚙️ **Arquitetura da Solução**
 
-* Integração direta com o backend Java via requisições HTTP
+O projeto adota uma arquitetura de **Microserviços Conteinerizados**, garantindo escalabilidade e isolamento de responsabilidades.
 
-* Interface simples e focada na usabilidade
+### **1. Backend (O Maestro)**
+* **Tecnologia:** Java 21 + Spring Boot 3.4.5.
+* **Função:** Orquestração de chamadas, gestão de segurança (Spring Security), validação de dados e comunicação com o banco.
+* **Comunicação:** Utiliza **OpenFeign** para comunicação HTTP de baixa latência com o serviço de IA.
 
-⚙️ O front-end consome a API REST do backend, que por sua vez se comunica com o serviço de Machine Learning em Python, completando o fluxo ponta a ponta da aplicação.
+### **2. Data Science (O Cérebro)**
+* **Tecnologia:** Python 3.11 + FastAPI + Uvicorn.
+* **Modelo:** Pipeline de Machine Learning utilizando **TF-IDF Vectorizer** (para transformar texto em números) e **Regressão Logística** (para classificação).
+* **Treinamento:** Modelo treinado com um dataset unificado de ~470.000 avaliações (Olist, B2W e Amazon Reviews).
+
+### **3. Frontend (A Interface)**
+* **Tecnologia:** Vanilla JavaScript (ES6+), HTML5 e CSS3.
+* **Design:** Interface limpa, responsiva e focada na experiência do usuário (UX), comunicando-se via Fetch API com o Backend.
+
+### **4. Infraestrutura de Dados**
+* **Banco de Dados:** PostgreSQL 15 rodando em container Docker.
+* **Persistência:** Armazena usuários, logs de auditoria e histórico completo das análises para geração de insights futuros.
+
+---
+
+## 📊 **Fluxo de Dados (Pipeline)**
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 Usuário
+    participant Front as 💻 Frontend
+    participant Java as ☕ Backend API (Java)
+    participant AI as 🧠 IA Service (Python)
+    participant DB as 🗄️ PostgreSQL
+
+    User->>Front: Digita o texto e clica em "Analisar"
+    Front->>Java: POST /analise (c/ Token JWT)
+    Java->>Java: Valida Token & Permissões
+    Java->>AI: Envia texto cru (OpenFeign)
+    AI->>AI: Detecta Idioma (PT/ES)
+    AI->>AI: Vetorização (TF-IDF) + Predição
+    AI-->>Java: Retorna JSON {sentimento, score, idioma}
+    Java->>DB: Salva log da análise (Persistência)
+    Java-->>Front: Retorna Resultado Completo
+    Front-->>User: Exibe Gráfico de Confiança e Cor
+```
 
 📌 Observação:
 O código do front-end encontra-se em funcionamento e integrado ao backend. Documentação e melhorias visuais poderão ser adicionadas nas próximas iterações do projeto.
