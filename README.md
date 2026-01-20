@@ -1,37 +1,25 @@
 # InsightSent — Inteligência de Dados e Análise de Sentimentos
 
-
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/spring_boot-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white)
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![Scikit-Learn](https://img.shields.io/badge/scikit_learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
-![Uvicorn](https://img.shields.io/badge/Uvicorn-000000?style=for-the-badge&logo=uvicorn&logoColor=white)
-![Hugging Face](https://img.shields.io/badge/HuggingFace-FFAE1A?style=for-the-badge&logo=huggingface&logoColor=black)
-![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
-![Imbalanced-learn](https://img.shields.io/badge/Imbalanced--learn-005571?style=for-the-badge&logo=python&logoColor=white)
-![Joblib](https://img.shields.io/badge/Joblib-005571?style=for-the-badge&logo=python&logoColor=white)
-![NLTK](https://img.shields.io/badge/NLTK-154360?style=for-the-badge&logo=python&logoColor=white)
-![SpaCy](https://img.shields.io/badge/SpaCy-09A3D5?style=for-the-badge&logo=spacy&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logoColor=white)
-![Seaborn](https://img.shields.io/badge/Seaborn-2E6F95?style=for-the-badge&logoColor=white)
-![Maven](https://img.shields.io/badge/Maven-%23C71A36.svg?style=for-the-badge&logo=apachemaven&logoColor=white)
-![H2 Database](https://img.shields.io/badge/H2_Database-%23003B57.svg?style=for-the-badge&logo=h2&logoColor=white)
-![PlantUML](https://img.shields.io/badge/PlantUML-%23f2f2f2.svg?style=for-the-badge&logo=plantuml&logoColor=black)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![Oracle Cloud](https://img.shields.io/badge/Oracle_Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white)
-
-
 ![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![OpenFeign](https://img.shields.io/badge/OpenFeign-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.128-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.11-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-2.3-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-2.4-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.8-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10-%23ffffff?style=for-the-badge&logo=matplotlib&logoColor=black)
+![Seaborn](https://img.shields.io/badge/Seaborn-0.13-4C72B0?style=for-the-badge&logo=python&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-BC0230?style=for-the-badge&logo=lombok&logoColor=white)
+![H2 Database](https://img.shields.io/badge/H2_Database-Local-003B57?style=for-the-badge&logo=h2&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-Security-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
 
 ---
@@ -59,7 +47,6 @@ Em um cenário onde **80% dos feedbacks de clientes são ignorados** por incapac
 * 📊 **Inteligência Visual:** Dashboard integrado para acompanhamento de métricas.
 * 🔒 **Segurança:** Arquitetura protegida com autenticação via Token JWT.
 
----
 
 ## ⚙️ **Arquitetura da Solução**
 
@@ -210,7 +197,8 @@ hackathon-sentimentapi-analytics
 │
 └── README.md               # Documentação principal do projeto
 ```
----
+
+
 ## Execução do Projeto
 
 ### Como Executar **(VSCODE)**
@@ -227,48 +215,42 @@ Este projeto é composto por dois serviços principais que devem ser executados 
 - API Backend (Java + Spring Boot)
 
 
-#### 🔹 Pré-requisitos
+#### Pré-requisitos
 
 Certifique-se de ter instalado:
 
-- Java 17+
+![Java](https://img.shields.io/badge/Java-17%2B-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.8%2B-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
-- Maven 3.8+
-
-- Python 3.10+
-
-- Git
-
-#### 🐍 1. Executando o Serviço de Machine Learning (Python)
-
+#### 1. Executando o Serviço de Machine Learning (Python)
 Responsável por classificar o sentimento dos feedbacks.
+
+Acesse a pasta:
 ```bash
 cd data
 ```
-
 Crie e ative um ambiente virtual (opcional, mas recomendado):
 ```bash
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 ```
-
 Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
-
 Execute a API FastAPI:
 ```bash
 uvicorn app:app --reload
 ```
 
-📍 O serviço estará disponível em:
-👉 http://localhost:8000
+**Acessos:**
 
-📄 Documentação automática (Swagger):
-👉 http://localhost:8000/docs
+O serviço estará disponível em: http://localhost:8000
 
+Documentação automática (Swagger): http://localhost:8000/docs
 
 #### ☕ 2. Executando o Backend (Java + Spring Boot)
 
@@ -309,10 +291,10 @@ em ambos os terminais (Python e Java).
 
 O projeto foi desenhado para ser executado com um único comando, abstraindo a complexidade de configuração de ambientes.
 
-### **Pré-requisitos**
+#### **Pré-requisitos**
 * Docker e Docker Compose instalados.
 
-### **Passo a Passo**
+#### **Passo a Passo**
 
 1.  **Clone o repositório:**
     ```bash
@@ -331,8 +313,8 @@ O projeto foi desenhado para ser executado com um único comando, abstraindo a c
     * **API Java (Swagger):** `http://localhost:8080/swagger-ui.html`
     * **API Python (Docs):** `http://localhost:8000/docs`
 
----
-### 📊 Fluxogramas do Sistema
+
+## 📊 Fluxogramas do Sistema
 
 Abaixo estão os fluxos principais da aplicação:
 
